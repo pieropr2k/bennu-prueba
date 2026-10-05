@@ -4,13 +4,16 @@ Programa de consola en Java que genera un archivo .txt de números aleatorios, l
 
 ## Recomendación: Ejecutar con Docker
 
-No hace falta tener Java ni el código, solo Docker:
+Lo más recomendable es ejecutarlo con Docker con:
 
 ```
 docker run -it --rm pieropr00/prueba_tecnica
 ```
 
 El `-it` es necesario porque el programa lee las opciones desde el teclado.
+
+![Comando Docker](./caps/docker_test.png)
+
 
 ## Menú
 
@@ -59,3 +62,13 @@ src/
 ```
 
 Los algoritmos de ordenamiento siguen el patrón Strategy: para agregar uno nuevo basta con implementar `SortStrategy` y añadirlo en `SortBenchmark.withDefaults()`.
+
+
+## Para ejecutar en local (sin Docker)
+
+Requiere Java 17 o superior. Desde la raíz del proyecto, en PowerShell:
+
+```
+javac -encoding UTF-8 -d out (Get-ChildItem -Recurse src -Filter *.java).FullName
+java -cp out Main
+```
